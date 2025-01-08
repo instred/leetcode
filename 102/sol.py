@@ -31,3 +31,13 @@ class Solution:
                     q = deque()
 
         return ans
+
+    
+r = TreeNode(5, TreeNode(3), TreeNode(7))
+r.left.left = TreeNode(2)
+r.left.right = TreeNode(4)
+r.right.left = TreeNode (6)
+r.right.right = TreeNode (8)
+
+sol = Solution()
+print(sol.levelOrder(r))
