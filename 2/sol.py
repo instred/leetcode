@@ -7,27 +7,45 @@ class ListNode:
         self.next = next
 
 
+class Solution2:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        n1, n2 = '', ''
+        while l1:
+            n1 = str(l1.val) + n1
+            l1 = l1.next
+
+        while l2:
+            n2 = str(l2.val) + n2
+            l2 = l2.next
+
+        n3 = (str(int(n1)+int(n2)))[::-1]
+        ans = newhead = ListNode()
+
+        for ch in n3:
+            newhead.next = ListNode(int(ch))
+            newhead = newhead.next
+
+        return ans.next
+    
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        num1 = ''
-        num2 = ''
-        while l1:
-            num1 += str(l1.val)
-            l1 = l1.next
-        while l2:
-            num2 += str(l2.val)
-            l2 = l2.next
-        num3 = str(int(num1[::-1]) + int(num2[::-1]))[::-1]
-        print(num1, num2, num3)
-        dummy = ListNode(0)
-        current = dummy
 
-        for n in num3:
-            current.next = ListNode(int(n))
-            current = current.next
+        ans = l3 = ListNode()
+        carry = 0
+        while l1 or l2 or carry:
+            if l1:
+                carry += l1.val
+                l1 = l1.next
+            if l2:
+                carry += l2.val
+                l2 = l2.next
+            
+            digit, carry = carry % 10, carry // 10
+            l3.next = ListNode(digit)
+            l3 = l3.next
 
-        return dummy.next
-    
+        return ans.next
+
 
 if __name__ == "__main__":
     s = Solution()
