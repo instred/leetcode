@@ -19,7 +19,6 @@ class Solution:
             if not (left < root.val < right):
                 return False
             
-            print(root.val, left, right)
 
             return dfs(root.left, left, root.val) and dfs(root.right, root.val, right)
         return dfs(root, float('-inf'), float('inf'))
