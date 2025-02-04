@@ -6,35 +6,19 @@ namespace csharp_sol
     {
         public static void Main(string[] args)
         {
-            char[][] board1 = {
-                new char[] {'5','3','.','.','7','.','.','.','.'},
-                new char[] {'6','.','.','1','9','5','.','.','.'},
-                new char[] {'.','9','8','.','.','.','.','6','.'},
-                new char[] {'8','.','.','.','6','.','.','.','3'},
-                new char[] {'4','.','.','8','.','3','.','.','1'},
-                new char[] {'7','.','.','.','2','.','.','.','6'},
-                new char[] {'.','6','.','.','.','.','2','8','.'},
-                new char[] {'.','.','.','4','1','9','.','.','5'},
-                new char[] {'.','.','.','.','8','.','.','7','9'}
-            };
+            int[] nums1 = {1, 2, 3};
+            int[] nums2 = {0};
+            int[] nums3 = {1};
+            S78 s78 = new();
 
-            char[][] board2 = {
-                new char[] {'8','3','.','.','7','.','.','.','.'},
-                new char[] {'6','.','.','1','9','5','.','.','.'},
-                new char[] {'.','9','8','.','.','.','.','6','.'},
-                new char[] {'8','.','.','.','6','.','.','.','3'},
-                new char[] {'4','.','.','8','.','3','.','.','1'},
-                new char[] {'7','.','.','.','2','.','.','.','6'},
-                new char[] {'.','6','.','.','.','.','2','8','.'},
-                new char[] {'.','.','.','4','1','9','.','.','5'},
-                new char[] {'.','.','.','.','8','.','.','7','9'}
-            };
+            var result1 = s78.Subsets(nums1);
+            var result2 = s78.Subsets(nums2);
+            var result3 = s78.Subsets(nums3);
 
-            Console.WriteLine(S36.IsValidSudoku(board1));
-            Console.WriteLine(S36.IsValidSudoku(board2));
+            foreach (var subset in result1) Console.WriteLine(string.Join(", ", subset));
+            foreach (var subset in result2) Console.WriteLine(string.Join(", ", subset));
+            foreach (var subset in result3) Console.WriteLine(string.Join(", ", subset));
 
-
-            
         }
     }
 }
