@@ -18,21 +18,31 @@ namespace csharp_sol
 
         public static IList<string> Decode(string s) 
         {
-            List<string> decoded = [];
-            char[] chars = [.. s];
+            List<string> decoded = new List<string>();
+            char[] chars = s.ToArray();
             int l = 0;
+            string word;
+            string count;
             while (l < s.Length)
             {
-                string curr = "";
-                while (chars[l] != '#' && l < s.Length-1)
+                word = "";
+                count = "";
+
+                while (chars[l] != '#')
                 {
-                    Console.WriteLine(l);
-                    curr += chars[l];
+                    count += chars[l];
                     l++;
                 }
-                Console.WriteLine(curr);
-
+                int count_i = Int32.Parse(count);
                 l++;
+                while (count_i > 0)
+                {
+                    word += chars[l];
+                    count_i--;
+                    l++;
+                }
+
+                decoded.Add(word);
 
             }
 

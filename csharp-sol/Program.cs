@@ -6,20 +6,34 @@ namespace csharp_sol
     {
         public static void Main(string[] args)
         {
-            List<string> strs1 = ["Hello", "World"];
-            List<string> strs2 = [""];
-            List<string> strs3 = ["leet", "code", "is", "fun"];
+            char[][] board1 = {
+                new char[] {'5','3','.','.','7','.','.','.','.'},
+                new char[] {'6','.','.','1','9','5','.','.','.'},
+                new char[] {'.','9','8','.','.','.','.','6','.'},
+                new char[] {'8','.','.','.','6','.','.','.','3'},
+                new char[] {'4','.','.','8','.','3','.','.','1'},
+                new char[] {'7','.','.','.','2','.','.','.','6'},
+                new char[] {'.','6','.','.','.','.','2','8','.'},
+                new char[] {'.','.','.','4','1','9','.','.','5'},
+                new char[] {'.','.','.','.','8','.','.','7','9'}
+            };
 
-            string encoded1 = S271.Encode(strs1);
-            string encoded2 = S271.Encode(strs2);
-            string encoded3 = S271.Encode(strs3);
-            // Console.WriteLine(encoded1);
-            // Console.WriteLine(encoded2);
-            // Console.WriteLine(encoded3);
+            char[][] board2 = {
+                new char[] {'8','3','.','.','7','.','.','.','.'},
+                new char[] {'6','.','.','1','9','5','.','.','.'},
+                new char[] {'.','9','8','.','.','.','.','6','.'},
+                new char[] {'8','.','.','.','6','.','.','.','3'},
+                new char[] {'4','.','.','8','.','3','.','.','1'},
+                new char[] {'7','.','.','.','2','.','.','.','6'},
+                new char[] {'.','6','.','.','.','.','2','8','.'},
+                new char[] {'.','.','.','4','1','9','.','.','5'},
+                new char[] {'.','.','.','.','8','.','.','7','9'}
+            };
 
-            Console.WriteLine(string.Join(", ", S271.Decode(encoded1)));
-            Console.WriteLine(string.Join(", ", S271.Decode(encoded2)));
-            Console.WriteLine(string.Join(", ", S271.Decode(encoded3)));
+            Console.WriteLine(S36.IsValidSudoku(board1));
+            Console.WriteLine(S36.IsValidSudoku(board2));
+
+
             
         }
     }
